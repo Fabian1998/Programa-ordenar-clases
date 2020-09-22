@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "colocacion-de-alumnos-en-clase",
+  "private_key_id": "9515a56cb8c447599fd5a53f577514ae0fc22e47",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCaVzZtDNl0kYex\nmKVuUiIbx+9a9GmZQXwOTjI3SioWaaqaURj7i+9LsH/boLdOggFkjKP896Y00GkA\nL348PsC0nWabcJNy1RlFwxcEXGozeelrqxq1jOkg6LTKyZtl4mmYjMTw0+ngZ/NG\njaq69+YAtR2VBXHR79K9TrtjZsaXHs3gQu/NVnlFDqEzlABdA9PRaj+vH4MbrOHz\n4YzHdD0rU81KYUP1kKPTJz39IkQ2j1SfVdyDwYE8faIpdp8h/v9g7rbjhOey5K4x\n4HAKcEy/I+bAC1k/tnxWyw/arbnFqEW7GUOA4MM+S/H8vjRAyc0LhxDcjKwnYwP9\nizdkcfqLAgMBAAECggEACkFCNgO1DShARl4Ym9hsOMFTl40G2S5/Mioi7waH/l49\n/ivmR4x4NWTAUhT/KQG9WvN3T+8ahYbVezQspI8c2cNdlnVn7qjXGYoJZPpI+iuf\nBU7koux+bvfXT2QO5bmh/4dW7JOABi+R+/2cuviOuTxPf1/RvLu9GmP5UnT5PAAu\n/iCkYTEgP5KLrlWlTh3o17MKCMgSSr84XriPyqz/6VmMYX65Fa2DKkCQZO/knIGt\nU8tjOA9Tatlfkx1opQxDGLPQmL4JPbMiz/meWTN2WkuuAiEyAw38nOn3BGiJX4Qw\nvYRKvYe7kipR5O4Sg/AZ/losUtbAzB6bqY1BMDJiMQKBgQDVGe2SKzT20v4tpvjK\n3WmW1fBhODtyvRtDemFxtA93WELozzBLk+kJX/P7yyrhe7EJF70Af6fUb9iz/hVt\nwPs9E8bn2fX7TB6LRGxVON52SSUaqHeR8OahMMNvN22L8A8wTCRiVTVOyn9JEn4t\nb4O9L+SwcCD4sWFyMkuX3OmZMQKBgQC5aRXBO6FwiEyFBE/6sXkVSvd9LYtgEdFt\nrr0R64Rd+zE+Ig9WevU+k1C7p53+NJNZDZD7FukOpQhCl5zR4KcZDDo4xHFw/Oad\n9835q/wY2UoPRUY5/fJbFLYtpwKUiXYlw8nNC6kJ31yaYRh23sJRcM2xwik7L0Ia\npahIwjNgewKBgAF1wQPsWduLDITBjRjOtYd8Bb6UxQt/Mi2fLAW8ZxK5PxQbP0h1\nRfZzetdxx+RtlYPrbrcPKNYywfhRuFHdLZt4hDdYbe//0IHBwUBAOH30+FUbbF5K\nmTnnfJ9JcO2xglkhXGp0DP5yMrcMcmLbTbrBFj8DNaaeiH1gzNXIhK0xAoGAezxF\noXIpE8sEUUVUg6SCfoydgy5KfUhakzSZpteL24uiZ1HsL+b6KuVvu8rlUJlRdtd1\nje7kaT94BgsPyNAxQIzIBgNMA3WVM1oKJfESVtHWT+ATlWgdNjzF+gIPzPqw9Nj1\nwLwHVvCHdHUk9Z2KOudnUMdk8Fmw7lU9TV8HFxECgYBPc8HGa6oUvVPYl3pmCPUG\n/8QbL91tYm/BKJLPIU7uoEKvlfNycVUoyGKiVyXhFW7P7xfGPZv/x34HiyEEVBrk\njuneeq4tz7xtTgiHgmJPdHzKvMxg94wOI/63iC9lXowaBuknk3FTVZwSSI0FVYUl\nmK7v2HHUIhdlb7KO/6hIbg==\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-jg860@colocacion-de-alumnos-en-clase.iam.gserviceaccount.com",
+  "client_id": "106279757921771003007",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-jg860%40colocacion-de-alumnos-en-clase.iam.gserviceaccount.com"
+}
