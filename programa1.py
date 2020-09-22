@@ -16,7 +16,23 @@ from tkinter import *
 from tkinter import ttk
 from tkinter import filedialog
 
-from firebase import firebase
+import firebase_admin
+from firebase_admin import credentials
+from firebase_admin import firestore
+from firebase_admin import auth
+from firebase_admin import storage
+
+cred = credentials.Certificate('colocacion-de-alumnos-en-clase-9515a56cb8c4.json')
+firebase_admin.initialize_app(cred)
+
+db = firestore.client()
+
+#doc_ref = db.collection(u'horario').document(u'ljasdksadkhsbk')
+#doc_ref.set({
+ #   u'first': u'dasdsadsa',
+  #  u'last': u'saddsadsadsads',
+   # u'born': "sdadsasdsafweewffwe"
+#})
 
 ###Ventana###
 
@@ -35,7 +51,7 @@ def crearcertificado1():
         framect3.destroy()
     except:
         print("pasa")
-    
+    global ADGD0308
     ADGD0308=IntVar()
     ADGG0208=IntVar()
     ADGG0408=IntVar()
@@ -71,7 +87,7 @@ def crearcertificado1():
     Checkbutton(framect1, variable=COMT0110, onvalue=True, offvalue=False).grid(row=7, column=1)
 
     Button(framect1, text="Selección de unidades", command=ventanacomercio).grid(row=8, column=0)
-
+    Button(framect1, text="unidades", command=subircomercio).grid(row=8, column=1)
 
 
     print("Hola2")  
@@ -105,26 +121,40 @@ def crearcertificado3():
 
 def ventanacomercio():
     global ventanacomercio
-    ventanacomercio=Tk()
+    global MF0976_2
+    global MF0979_2
+    global UF0349
+    UF0349=BooleanVar()
+    global fechaUF0349
+    global horarioUF0349
+    fechaUF0349= StringVar()
+    horarioUF0349= StringVar()
+    ventanacomercio=Toplevel()
+    ventanacomercio.title("Formación")
     MF0976_2=IntVar()
     Label(ventanacomercio, text="MF0976_2-Operaciones administrativas comerciales ").grid(row=0, column=0)
-    Checkbutton(ventanacomercio, variable=MF0976_2, onvalue=True, offvalue=False, command=unidadesMF0976_2).grid(row=0, column=1)
+    Checkbutton(ventanacomercio, variable=MF0976_2, onvalue=True, offvalue=False).grid(row=0, column=1)
+    Label(ventanacomercio, text="UF0349: Atención al cliente en el proceso comercial").grid(row=1, column=2)
+    UF0349check=Checkbutton(ventanacomercio, variable=UF0349, onvalue=True, offvalue=False).grid(row=1, column=3)
+    Label(ventanacomercio, text="Fechas").grid(row=1, column=4)
+    entryfecha=Entry(ventanacomercio, textvariable="fechaUF0349").grid(row=1, column=5)
+    Label(ventanacomercio, text="Horario").grid(row=1, column=6)
+    Entry(ventanacomercio, textvariable="horarioUF0349").grid(row=1, column=7)
     MF0979_2=IntVar()
     Label(ventanacomercio, text="MF0979_2: Gestión operativa de tesorería").grid(row=4, column=0)
     Checkbutton(ventanacomercio, variable=MF0979_2, onvalue=True, offvalue=False).grid(row=4, column=1)
     Button(ventanacomercio, text="Subir", command=subircomercio).grid(row=50, column=0)
-    ventanacomercio.mainloop()
+    #ventanacomercio.mainloop()
 
-def unidadesMF0976_2():
-    UF0349=IntVar()
-    Label(ventanacomercio, text="UF0349: Atención al cliente en el proceso comercial").grid(row=1, column=2)
-    Checkbutton(ventanacomercio, variable=UF0349, onvalue=True, offvalue=False).grid(row=1, column=3)
-
-def subircomercio():
-    print("HOla")
-
-
-
+def subircomercio(entryfecha, horarioUF0349):
+    print(entryfecha.get())
+    print(horarioUF0349.get())
+    #print(ADGD0308.get())
+    #print(nombre.get())
+    #print(apellido.get())
+    #print(dni.get())
+    #print(telefono.get())
+    #print(correo.get())
 
 ###Pestañas###
 
@@ -137,17 +167,21 @@ Notebook.add(organizarclases, text="Horario")
 
 ###Añadir nuevo alumno###
 
-Label(adjudicaralumno, text="Nombre:").grid(row=0, column=0)
-nombre = Entry(adjudicaralumno).grid(row=0, column=1)
-Label(adjudicaralumno, text="Apellidos:").grid(row=0, column=2)
-apellido = Entry(adjudicaralumno).grid(row=0, column=3)
-Label(adjudicaralumno, text="Dni:").grid(row=0, column=4)
 dni= StringVar()
-dnientry = Entry(adjudicaralumno, textvariable=dni).grid(row=0, column=5)
+nombre= StringVar()
+apellido= StringVar()
+correo= StringVar()
+telefono= StringVar()
+Label(adjudicaralumno, text="Nombre:").grid(row=0, column=0)
+Entry(adjudicaralumno, textvariable=nombre).grid(row=0, column=1)
+Label(adjudicaralumno, text="Apellidos:").grid(row=0, column=2)
+Entry(adjudicaralumno, textvariable=apellido).grid(row=0, column=3)
+Label(adjudicaralumno, text="Dni:").grid(row=0, column=4)
+Entry(adjudicaralumno, textvariable=dni).grid(row=0, column=5)
 Label(adjudicaralumno, text="Correo:").grid(row=1, column=0)
-apellido = Entry(adjudicaralumno).grid(row=1, column=1)
+Entry(adjudicaralumno, textvariable=correo).grid(row=1, column=1)
 Label(adjudicaralumno, text="Telefono:").grid(row=1, column=2)
-apellido = Entry(adjudicaralumno).grid(row=1, column=3)
+Entry(adjudicaralumno, textvariable=telefono).grid(row=1, column=3)
 
 
 certificado1 = IntVar()
