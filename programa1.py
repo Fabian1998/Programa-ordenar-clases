@@ -118,7 +118,7 @@ def crearcertificado3():
     framect3.grid(row=3, column=0)
     Label(framect3, text="Hola").grid(row=0, column=0)
 
-def ventanacomercio():
+def ventanacomercio(*args):
     global ventanacomercio
     global MF0976_2
     global MF0979_2
@@ -145,8 +145,8 @@ def ventanacomercio():
     Button(ventanacomercio, text="Subir", command=subircomercio).grid(row=50, column=0)
     #ventanacomercio.mainloop()
 
-def subircomercio(entryfecha, horarioUF0349):
-    print(entryfecha.get())
+def subircomercio():
+    fechaUF0349.set("Hola")
     print(horarioUF0349.get())
     #print(ADGD0308.get())
     #print(nombre.get())
