@@ -101,11 +101,10 @@ def crearcertificado2():
         framect2.destroy()
         framect3.destroy()
     except:
-        print("pasa")
+        print("")
     framect2= ttk.Frame(adjudicaralumno)
     framect2.grid(row=3, column=0)
     Label(framect2, text="Hola1").grid(row=1, column=2)
-    print("hola4")
 
 def crearcertificado3():
     global framect3
@@ -114,7 +113,7 @@ def crearcertificado3():
         framect2.destroy()
         framect3.destroy()
     except:
-        print("pasa")
+        print("")
     framect3= ttk.Frame(adjudicaralumno)
     framect3.grid(row=3, column=0)
     Label(framect3, text="Hola").grid(row=0, column=0)
