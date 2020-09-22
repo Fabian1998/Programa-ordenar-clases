@@ -37,6 +37,9 @@ root.title("Inicio")
 
 ###Funciones###
 
+
+
+
 def crearcertificado1():
     global framect1
     print("Hola1")
@@ -140,13 +143,33 @@ def ventanacomercio():
     Button(ventanacomercio, text="Subir", command=subircomercio).grid(row=50, column=0)
 
 def subircomercio():
-    doc_ref = db.collection(u'info').document(dni.get())
-    doc_ref.set({
-    u'Nombre': nombre.get(),
-    u'Apellido': apellido.get(),
-    u'Correo': correo.get(),
-    u'Telefono': telefono.get()
-    })
+    if dni.get() == "" or nombre.get() == "" or apellido.get() == "" or  correo.get() == "" or  telefono.get() == "":
+        showerror(title="Error", message="Faltan datos del alumno")
+    else:
+        carpeta = db.collection(u'info')
+        nombre1 = carpeta.get()
+        for n in nombre1:
+            dniarray=u'{}'.format(n.id,n.to_dict())
+            if dniarray == dni.get():
+                doc_ref = db.collection(u'info').document(dni.get())
+                doc_ref.update({
+                u'Nombre': nombre.get(),
+                u'Apellido': apellido.get(),
+                u'Correo': correo.get(),
+                u'Telefono': telefono.get()
+                })
+                showinfo(title="Info", message="Usuario actualizado con exito")
+                quit
+            else:
+                doc_ref = db.collection(u'info').document(dni.get())
+                doc_ref.set({
+                u'Nombre': nombre.get(),
+                u'Apellido': apellido.get(),
+                u'Correo': correo.get(),
+                u'Telefono': telefono.get()
+                })
+                showinfo(title="Info", message="Usuario subido con exito")
+                quit
 
 ###Pestañas###
 
@@ -182,6 +205,7 @@ certificado3 = IntVar()
 Radiobutton(adjudicaralumno, variable=certificado1, text="Comercio y administracion", command=crearcertificado1).grid(row=2, column=0)
 Radiobutton(adjudicaralumno, variable=certificado2, text="Sala", command=crearcertificado2).grid(row=2, column=1)
 Radiobutton(adjudicaralumno, variable=certificado3, text="Cocina, pasteleria y reposteria", command=crearcertificado3).grid(row=2, column=2)
+
 ###Organizacion de clases###
 
 
