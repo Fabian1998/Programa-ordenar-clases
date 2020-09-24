@@ -22,6 +22,9 @@ from firebase_admin import firestore
 from firebase_admin import auth
 from firebase_admin import storage
 
+import datetime
+from datetime import date
+
 cred = credentials.Certificate('colocacion-de-alumnos-en-clase-9515a56cb8c4.json')
 firebase_admin.initialize_app(cred)
 
@@ -130,16 +133,19 @@ def ventanacomercio():
     horarioUF0349= StringVar()
     ventanacomercio=Toplevel()
     ventanacomercio.title("Formación")
-    Label(ventanacomercio, text="MF0976_2-Operaciones administrativas comerciales ").grid(row=0, column=0)
-    Checkbutton(ventanacomercio, variable=MF0976_2, onvalue=True, offvalue=False).grid(row=0, column=1)
-    Label(ventanacomercio, text="UF0349: Atención al cliente en el proceso comercial").grid(row=1, column=2)
-    UF0349check=Checkbutton(ventanacomercio, variable=UF0349, onvalue=True, offvalue=False).grid(row=1, column=3)
-    Label(ventanacomercio, text="Fechas").grid(row=1, column=4)
-    Entry(ventanacomercio, textvariable=fechaUF0349).grid(row=1, column=5)
-    Label(ventanacomercio, text="Horario").grid(row=1, column=6)
-    Entry(ventanacomercio, textvariable=horarioUF0349).grid(row=1, column=7)
-    Label(ventanacomercio, text="MF0979_2: Gestión operativa de tesorería").grid(row=4, column=0)
-    Checkbutton(ventanacomercio, variable=MF0979_2, onvalue=True, offvalue=False).grid(row=4, column=1)
+    if ADGD0308.get() == 1:
+        Label(ventanacomercio, text="MF0976_2-Operaciones administrativas comerciales ").grid(row=0, column=0)
+        Checkbutton(ventanacomercio, variable=MF0976_2, onvalue=True, offvalue=False).grid(row=0, column=1)
+        Label(ventanacomercio, text="UF0349: Atención al cliente en el proceso comercial").grid(row=1, column=2)
+        UF0349check=Checkbutton(ventanacomercio, variable=UF0349, onvalue=True, offvalue=False).grid(row=1, column=3)
+        Label(ventanacomercio, text="Fechas").grid(row=1, column=4)
+        Entry(ventanacomercio, textvariable=fechaUF0349).grid(row=1, column=5)
+        Label(ventanacomercio, text="Horario").grid(row=1, column=6)
+        Entry(ventanacomercio, textvariable=horarioUF0349).grid(row=1, column=7)
+        Label(ventanacomercio, text="MF0979_2: Gestión operativa de tesorería").grid(row=4, column=0)
+        Checkbutton(ventanacomercio, variable=MF0979_2, onvalue=True, offvalue=False).grid(row=4, column=1)
+    else:
+        pass
     Button(ventanacomercio, text="Subir", command=subircomercio).grid(row=50, column=0)
 
 def subircomercio():
