@@ -4,13 +4,10 @@ try:
     from Tkinter import *
     from ttk import *
     from tkMessageBox import *
-    print('Python 2')
-    print('Su sistema usa Python 2, puede causar problemas en la ejecución')
 except ImportError:
     from tkinter import *
     from tkinter.ttk import *
     from tkinter.messagebox import *
-    print('Python 3')
 
 from tkinter import *
 from tkinter import ttk
@@ -42,13 +39,12 @@ root.title("Inicio")
 
 def crearcertificado1():
     global framect1
-    print("Hola1")
     try:
         framect1.destroy()
         framect2.destroy()
         framect3.destroy()
     except:
-        print("pasa")
+        pass
     global ADGD0308
     ADGD0308=IntVar()
     ADGG0208=IntVar()
@@ -87,19 +83,13 @@ def crearcertificado1():
     Button(framect1, text="Selección de unidades", command=ventanacomercio).grid(row=8, column=0)
     Button(framect1, text="unidades", command=subircomercio).grid(row=8, column=1)
 
-
-    print("Hola2")  
-
-
 def crearcertificado2():
     global framect2
-    print("Hola3")
     try:
         framect1.destroy()
         framect2.destroy()
         framect3.destroy()
     except:
-        print("")
     framect2= ttk.Frame(adjudicaralumno)
     framect2.grid(row=3, column=0)
     Label(framect2, text="Hola1").grid(row=1, column=2)
@@ -190,16 +180,22 @@ nombre= StringVar()
 apellido= StringVar()
 correo= StringVar()
 telefono= StringVar()
+fechainicio = StringVar()
+fechafin = StringVar()
 Label(adjudicaralumno, text="Nombre:").grid(row=0, column=0)
 Entry(adjudicaralumno, textvariable=nombre).grid(row=0, column=1)
 Label(adjudicaralumno, text="Apellidos:").grid(row=0, column=2)
 Entry(adjudicaralumno, textvariable=apellido).grid(row=0, column=3)
 Label(adjudicaralumno, text="Dni:").grid(row=0, column=4)
 Entry(adjudicaralumno, textvariable=dni).grid(row=0, column=5)
+Label(adjudicaralumno, text="Telefono:").grid(row=0, column=6)
+Entry(adjudicaralumno, textvariable=telefono).grid(row=0, column=7)
 Label(adjudicaralumno, text="Correo:").grid(row=1, column=0)
 Entry(adjudicaralumno, textvariable=correo).grid(row=1, column=1)
-Label(adjudicaralumno, text="Telefono:").grid(row=1, column=2)
-Entry(adjudicaralumno, textvariable=telefono).grid(row=1, column=3)
+Label(adjudicaralumno, text="Fecha inicio:").grid(row=1, column=2)
+Entry(adjudicaralumno, textvariable=fechainicio).grid(row=1, column=3)
+Label(adjudicaralumno, text="Fecha fin:").grid(row=1, column=4)
+Entry(adjudicaralumno, textvariable=fechafin).grid(row=1, column=5)
 
 
 certificado1 = IntVar()
