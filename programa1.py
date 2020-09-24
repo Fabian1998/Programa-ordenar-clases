@@ -40,9 +40,6 @@ root.title("Inicio")
 
 ###Funciones###
 
-
-
-
 def crearcertificado1():
     global framect1
     print("Hola1")
