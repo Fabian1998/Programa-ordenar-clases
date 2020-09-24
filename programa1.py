@@ -159,7 +159,7 @@ def subircomercio():
                 u'Telefono': telefono.get()
                 })
                 showinfo(title="Info", message="Usuario actualizado con exito")
-                quit
+                return
             else:
                 doc_ref = db.collection(u'info').document(dni.get())
                 doc_ref.set({
@@ -169,7 +169,7 @@ def subircomercio():
                 u'Telefono': telefono.get()
                 })
                 showinfo(title="Info", message="Usuario subido con exito")
-                quit
+                return
 
 ###Pestañas###
 
