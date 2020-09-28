@@ -55,7 +55,7 @@ def crearcertificado1():
     COMT0411=IntVar()
     COMT0110=IntVar()
     framect1= ttk.Frame(adjudicaralumno)
-    framect1.grid(row=3, column=0)
+    framect1.grid(row=4, column=0)
     Label(framect1, text="ADGD0308-Actividades de gestion administrativa").grid(row=0, column=0)
     Checkbutton(framect1, variable=ADGD0308, onvalue=True, offvalue=False).grid(row=0, column=1)
 
@@ -90,9 +90,9 @@ def crearcertificado2():
         framect2.destroy()
         framect3.destroy()
     except:
-    framect2= ttk.Frame(adjudicaralumno)
-    framect2.grid(row=3, column=0)
-    Label(framect2, text="Hola1").grid(row=1, column=2)
+        framect2= ttk.Frame(adjudicaralumno)
+        framect2.grid(row=4, column=0)
+        Label(framect2, text="Hola1").grid(row=1, column=2)
 
 def crearcertificado3():
     global framect3
@@ -103,7 +103,7 @@ def crearcertificado3():
     except:
         print("")
     framect3= ttk.Frame(adjudicaralumno)
-    framect3.grid(row=3, column=0)
+    framect3.grid(row=4, column=0)
     Label(framect3, text="Hola").grid(row=0, column=0)
 
 def ventanacomercio():
@@ -136,33 +136,64 @@ def ventanacomercio():
     Button(ventanacomercio, text="Subir", command=subircomercio).grid(row=50, column=0)
 
 def subircomercio():
-    if dni.get() == "" or nombre.get() == "" or apellido.get() == "" or  correo.get() == "" or  telefono.get() == "":
-        showerror(title="Error", message="Faltan datos del alumno")
+    if Lunes.get() == 1:
+        print ("LUnes")
     else:
-        carpeta = db.collection(u'info')
-        nombre1 = carpeta.get()
-        for n in nombre1:
-            dniarray=u'{}'.format(n.id,n.to_dict())
-            if dniarray == dni.get():
-                doc_ref = db.collection(u'info').document(dni.get())
-                doc_ref.update({
-                u'Nombre': nombre.get(),
-                u'Apellido': apellido.get(),
-                u'Correo': correo.get(),
-                u'Telefono': telefono.get()
-                })
-                showinfo(title="Info", message="Usuario actualizado con exito")
-                return
-            else:
-                doc_ref = db.collection(u'info').document(dni.get())
-                doc_ref.set({
-                u'Nombre': nombre.get(),
-                u'Apellido': apellido.get(),
-                u'Correo': correo.get(),
-                u'Telefono': telefono.get()
-                })
-                showinfo(title="Info", message="Usuario subido con exito")
-                return
+        pass
+    if Martes.get() == 1:
+        print ("Martes")
+    else:
+        pass
+    if Miercoles.get() == 1:
+        print ("Miercoles")
+    else:
+        pass
+    if Jueves.get() == 1:
+        print ("Jueves")
+    else:
+        pass
+    if Viernes.get() == 1:
+        print ("Viernes")
+    else:
+        pass
+#    if dni.get() == "" or nombre.get() == "" or apellido.get() == "" or  correo.get() == "" or  telefono.get() == "" or fechainicio.get() == "" or fechafin.get() == "":
+#        showerror(title="Error", message="Faltan datos del alumno")
+#    else:
+#        carpeta = db.collection(u'info')
+#        nombre1 = carpeta.get()
+#        for n in nombre1:
+#            dniarray=u'{}'.format(n.id,n.to_dict())
+#            if dniarray == dni.get():
+#                doc_ref = db.collection(u'info').document(dni.get())
+#                doc_ref.update({
+#                u'Nombre': nombre.get(),
+#                u'Apellido': apellido.get(),
+#                u'Correo': correo.get(),
+#                u'Telefono': telefono.get()
+#                })
+#                showinfo(title="Info", message="Usuario actualizado con exito")
+#                return
+#            else:
+#                doc_ref = db.collection(u'info').document(dni.get())
+#                doc_ref.set({
+#                u'Nombre': nombre.get(),
+#                u'Apellido': apellido.get(),
+#                u'Correo': correo.get(),
+#                u'Telefono': telefono.get()
+#                })
+#                showinfo(title="Info", message="Usuario subido con exito")
+#                return
+        #dias = str(fechafin.get() - fechainicio.get())
+        #numdia = dias.split(" ")
+        #dias=int(numdia[0])
+        #while dias >= 0:
+        #    buscador = b.strftime("%A")
+        #    if buscador == "Monday":
+        #        print(b.strftime("%x"))
+        #    else:
+        #        pass
+        #    b = b + datetime.timedelta(days=1)
+        #    dias = dias - 1
 
 ###Pestañas###
 
@@ -170,8 +201,8 @@ Notebook= ttk.Notebook(root)
 Notebook.pack(fill='both', expand='yes')
 adjudicaralumno = ttk.Frame(Notebook)
 Notebook.add(adjudicaralumno, text="Añadir Alumno")
-organizarclases = ttk.Frame(Notebook)
-Notebook.add(organizarclases, text="Horario")
+#organizarclases = ttk.Frame(Notebook)
+#Notebook.add(organizarclases, text="Horario")
 
 ###Añadir nuevo alumno###
 
@@ -182,6 +213,15 @@ correo= StringVar()
 telefono= StringVar()
 fechainicio = StringVar()
 fechafin = StringVar()
+Lunes= IntVar()
+Martes=IntVar()
+Miercoles= IntVar()
+Jueves= IntVar()
+Viernes= IntVar()
+comercio= IntVar()
+sala= IntVar()
+cocina= IntVar()
+horario = StringVar()
 Label(adjudicaralumno, text="Nombre:").grid(row=0, column=0)
 Entry(adjudicaralumno, textvariable=nombre).grid(row=0, column=1)
 Label(adjudicaralumno, text="Apellidos:").grid(row=0, column=2)
@@ -196,14 +236,29 @@ Label(adjudicaralumno, text="Fecha inicio:").grid(row=1, column=2)
 Entry(adjudicaralumno, textvariable=fechainicio).grid(row=1, column=3)
 Label(adjudicaralumno, text="Fecha fin:").grid(row=1, column=4)
 Entry(adjudicaralumno, textvariable=fechafin).grid(row=1, column=5)
+Label(adjudicaralumno, text="Horario:").grid(row=1, column=6)
+Entry(adjudicaralumno, textvariable=horario).grid(row=1, column=7)
+Label(adjudicaralumno, text="Lunes:").grid(row=2, column=0)
+Checkbutton(adjudicaralumno, variable=Lunes, onvalue=1, offvalue=0).grid(row=2, column=1, sticky="w")
+Label(adjudicaralumno, text="Martes:").grid(row=2, column=2)
+Checkbutton(adjudicaralumno, variable=Martes, onvalue=1, offvalue=0).grid(row=2, column=3, sticky="w")
+Label(adjudicaralumno, text="Miercoles:").grid(row=2, column=4)
+Checkbutton(adjudicaralumno, variable=Miercoles, onvalue=1, offvalue=0).grid(row=2, column=5, sticky="w")
+Label(adjudicaralumno, text="Jueves:").grid(row=2, column=6)
+Checkbutton(adjudicaralumno, variable=Jueves, onvalue=1, offvalue=0).grid(row=2, column=7, sticky="w")
+Label(adjudicaralumno, text="Viernes:").grid(row=2, column=8)
+Checkbutton(adjudicaralumno, variable=Viernes, onvalue=1, offvalue=0).grid(row=2, column=9, sticky="w")
 
-
-certificado1 = IntVar()
-certificado2 = IntVar()
-certificado3 = IntVar()
-Radiobutton(adjudicaralumno, variable=certificado1, text="Comercio y administracion", command=crearcertificado1).grid(row=2, column=0)
-Radiobutton(adjudicaralumno, variable=certificado2, text="Sala", command=crearcertificado2).grid(row=2, column=1)
-Radiobutton(adjudicaralumno, variable=certificado3, text="Cocina, pasteleria y reposteria", command=crearcertificado3).grid(row=2, column=2)
+Checkbutton(adjudicaralumno, text="Comercio y administracion", variable=comercio, onvalue=1, offvalue=0).grid(row=3, column=0)
+Checkbutton(adjudicaralumno, text="Sala", variable=sala, onvalue=1, offvalue=0).grid(row=3, column=1)
+Checkbutton(adjudicaralumno, text="Cocina, pasteleria y reposteria", variable=cocina, onvalue=1, offvalue=0).grid(row=3, column=2)
+Button(adjudicaralumno, text="Subir", command=subircomercio).grid(row=50, column=0)
+#certificado1 = IntVar()
+#certificado2 = IntVar()
+#certificado3 = IntVar()
+#Radiobutton(adjudicaralumno, variable=certificado1, text="Comercio y administracion", command=crearcertificado1).grid(row=3, column=0)
+#Radiobutton(adjudicaralumno, variable=certificado2, text="Sala", command=crearcertificado2).grid(row=3, column=1)
+#Radiobutton(adjudicaralumno, variable=certificado3, text="Cocina, pasteleria y reposteria", command=crearcertificado3).grid(row=3, column=2)
 
 ###Organizacion de clases###
 
