@@ -194,12 +194,13 @@ def subircomercio():
                         doc_ref.update({
                         dni.get(): firestore.ArrayUnion([horario.get()])
                         })
+
                     else:
                         print ("No esta")
                         print(inicio.strftime("%d" "%B" "%Y"))
                         doc_ref = db.collection(u'fechas').document(inicio.strftime("%d" "%B" "%Y"))
                         doc_ref.set({
-                        dni.get(): firestore.ArrayUnion([horario.get()])
+                        dni.get(): horario.get()
                         })
             else:
                 pass
