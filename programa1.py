@@ -136,29 +136,65 @@ def ventanacomercio():
     Button(ventanacomercio, text="Subir", command=subircomercio).grid(row=50, column=0)
 
 def subircomercio():
+    varfechafin= fechafin.get()
+    varfechainicio= fechainicio.get()
+    separarfechafin= varfechafin.split("/")
+    diafin=int(separarfechafin[0])
+    mesfin=int(separarfechafin[1])
+    añofin=int(separarfechafin[2])
+
+    separarfechainicio= varfechainicio.split("/")
+    diainicio=int(separarfechainicio[0])
+    mesinicio=int(separarfechainicio[1])
+    añoinicio=int(separarfechainicio[2])
+
+    inicio=date(añoinicio, mesinicio, diainicio)
+    fin=date(añofin, mesfin,  diafin)
+    listadias=[]
+
+    #if dni.get() == "" or nombre.get() == "" or apellido.get() == "" or  correo.get() == "" or  telefono.get() == "" or fechainicio.get() == "" or fechafin.get() == "" or horario.get() == "":
+#       showerror(title="Error", message="Faltan datos del alumno")
+    #else:
     if Lunes.get() == 1:
         print ("LUnes")
+        listadias.append("Monday")
     else:
         pass
     if Martes.get() == 1:
         print ("Martes")
+        listadias.append("Tuesday")
     else:
         pass
     if Miercoles.get() == 1:
         print ("Miercoles")
+        listadias.append("Wednesday")
     else:
         pass
     if Jueves.get() == 1:
         print ("Jueves")
+        listadias.append("Thursday")
     else:
         pass
     if Viernes.get() == 1:
         print ("Viernes")
+        listadias.append("Friday")
     else:
         pass
-#    if dni.get() == "" or nombre.get() == "" or apellido.get() == "" or  correo.get() == "" or  telefono.get() == "" or fechainicio.get() == "" or fechafin.get() == "":
-#        showerror(title="Error", message="Faltan datos del alumno")
-#    else:
+    for n in listadias:
+        dias = str(fin - inicio)
+        numdia = dias.split(" ")
+        dias=int(numdia[0])
+        
+        while dias >= 0:
+            buscador = inicio.strftime("%A")
+            if buscador == n:
+                print(inicio.strftime("%d" "%B" "%Y"))
+            else:
+                pass
+            inicio = inicio + datetime.timedelta(days=1)
+            dias = dias - 1
+        inicio=date(añoinicio, mesinicio,  diainicio)
+
 #        carpeta = db.collection(u'info')
 #        nombre1 = carpeta.get()
 #        for n in nombre1:
@@ -183,17 +219,7 @@ def subircomercio():
 #                })
 #                showinfo(title="Info", message="Usuario subido con exito")
 #                return
-        #dias = str(fechafin.get() - fechainicio.get())
-        #numdia = dias.split(" ")
-        #dias=int(numdia[0])
-        #while dias >= 0:
-        #    buscador = b.strftime("%A")
-        #    if buscador == "Monday":
-        #        print(b.strftime("%x"))
-        #    else:
-        #        pass
-        #    b = b + datetime.timedelta(days=1)
-        #    dias = dias - 1
+
 
 ###Pestañas###
 
