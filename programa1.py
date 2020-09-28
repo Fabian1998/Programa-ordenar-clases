@@ -136,6 +136,8 @@ def ventanacomercio():
     Button(ventanacomercio, text="Subir", command=subircomercio).grid(row=50, column=0)
 
 def subircomercio():
+    totalesdias =  db.collection(u'fechas')
+    diastotales = totalesdias.get()
     varfechafin= fechafin.get()
     varfechainicio= fechainicio.get()
     separarfechafin= varfechafin.split("/")
@@ -156,27 +158,22 @@ def subircomercio():
 #       showerror(title="Error", message="Faltan datos del alumno")
     #else:
     if Lunes.get() == 1:
-        print ("LUnes")
         listadias.append("Monday")
     else:
         pass
     if Martes.get() == 1:
-        print ("Martes")
         listadias.append("Tuesday")
     else:
         pass
     if Miercoles.get() == 1:
-        print ("Miercoles")
         listadias.append("Wednesday")
     else:
         pass
     if Jueves.get() == 1:
-        print ("Jueves")
         listadias.append("Thursday")
     else:
         pass
     if Viernes.get() == 1:
-        print ("Viernes")
         listadias.append("Friday")
     else:
         pass
@@ -184,11 +181,26 @@ def subircomercio():
         dias = str(fin - inicio)
         numdia = dias.split(" ")
         dias=int(numdia[0])
-        
+
         while dias >= 0:
             buscador = inicio.strftime("%A")
             if buscador == n:
-                print(inicio.strftime("%d" "%B" "%Y"))
+                for n in diastotales:
+                    fechasarry = u'{}'.format(n.id,n.to_dict())
+                    if fechasarry == inicio.strftime("%d" "%B" "%Y"):
+                        print ("Esta")
+                        print(inicio.strftime("%d" "%B" "%Y"))
+                        doc_ref = db.collection(u'fechas').document(inicio.strftime("%d" "%B" "%Y"))
+                        doc_ref.update({
+                        dni.get(): firestore.ArrayUnion([horario.get()])
+                        })
+                    else:
+                        print ("No esta")
+                        print(inicio.strftime("%d" "%B" "%Y"))
+                        doc_ref = db.collection(u'fechas').document(inicio.strftime("%d" "%B" "%Y"))
+                        doc_ref.set({
+                        dni.get(): firestore.ArrayUnion([horario.get()])
+                        })
             else:
                 pass
             inicio = inicio + datetime.timedelta(days=1)
